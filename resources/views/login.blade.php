@@ -63,13 +63,13 @@
                     </span>
                 @endif
 
-                  <form class="row g-3 needs-validation" novalidate>
-
+                  <form class="row g-3" action="{{route('Log-auth')}}" method="POST">
+                    @csrf
                     <div class="col-12">
                       <label for="yourUsername" class="form-label">Username or Email</label>
-                      <div class="input-group has-validation">
-                        <input type="text" name="username" class="form-control" id="yourUsername" required>
-                        <div class="invalid-feedback">Please enter your username.</div>
+                      <div class="input-group">
+                        <input type="text" name="name" class="form-control" id="yourUsername" required>
+                        <div class="invalid-feedback">Please enter your username or email.</div>
                       </div>
                     </div>
 
@@ -79,12 +79,6 @@
                       <div class="invalid-feedback">Please enter your password!</div>
                     </div>
 
-                    <div class="col-12">
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="remember" value="true" id="rememberMe">
-                        <label class="form-check-label" for="rememberMe">Remember me</label>
-                      </div>
-                    </div>
                     <div class="col-12">
                       <button class="btn btn-primary w-100" type="submit">Login</button>
                     </div>

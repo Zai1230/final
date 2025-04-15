@@ -6,8 +6,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 
 Route::get('/',[AuthController::class, 'showlogin']);
-Route::get('/logout',[AuthController::class,'logout'])->name('logout');
-Route::get('/register',[AuthController::class,'showRegister'])->name('Register');
+
 
 Route::get('/dashboard',[AuthController::class,'Dashboard'])->name('Dashboard');
 
@@ -23,4 +22,12 @@ Route::controller((SocialController::class))->group(function(){
     Route::get('auth/facebook', 'redirectToFacebook');
     Route::get('auth/facebook/callback', 'handleFacebookCallBack');
 
+});
+
+Route::controller(AuthController::class)->group(function(){
+    Route::get('/logout','logout')->name('logout');
+    Route::get('/register','showRegister')->name('Register');
+
+    Route::post('/login', 'Login')->name('Log-auth');
+    Route::post('/registered', 'Register')->name('Registered');
 });
