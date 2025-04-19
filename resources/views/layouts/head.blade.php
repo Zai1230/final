@@ -51,10 +51,13 @@
   <main id="main" class="main">
 
         @if (Route::currentRoutename() === 'Dashboard')
-                @yield('dashboard')
-        @endif
-        @if (Route::currentRoutename() === 'Users')
-                @yield('users')
+            @yield('dashboard')
+        @elseif (Route::currentRoutename() === 'Users')
+            @yield('users')
+        @elseif (Route::currentRoutename() === 'Product')
+            @yield('product')
+        @elseif (Route::currentRoutename() === 'Category')
+            @yield('category')
         @endif
 
 

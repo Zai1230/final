@@ -12,41 +12,35 @@
   </div>
 
 
-  <section class="section dashboard">
-    <div class="row">
-            <table>
-                <thead>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Date created</th>
-                    <th>Action</th>
-                </thead>
-                <tbody>
-                    @if (count($all_users) > 0)
-                        @foreach ($all_users as $item)
-                            <tr>
-                                <td>{{ $item->name}}</td>
-                                <td>{{ $item->email}}</td>
-                                <td>{{ $item->created_at->format('F d, Y')}}</td>
-                                <td>
-                                    <a href="" class="btn btn-sm btn-primary">Edit</a>
-                                    <a href="" class="btn btn-sm btn-danger">Delete</a>
-                                </td>
-                            </tr>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Users</h5>
 
-                        @endforeach
-                    @else
-                    <tr>
-                        <td colspan="4" style="text-align: center;">No users found.</td>
-                    </tr>
-
-                    @endif
-                </tbody>
-            </table>
-
-
-
+      <table class="table datatable">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          @foreach ($all_users as $index => $user)
+          <tr>
+            <td>{{ $user->name }}</td>
+            <td>{{ $user->email }}</td>
+            <td>
+                <a href="" class="btn btn-sm btn-primary"><i class="bi bi-pencil"></i></a>
+                <a href="" class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></a>
+              </form>
+            </td>
+          </tr>
+          @endforeach
+        </tbody>
+      </table>
 
     </div>
-  </section>
+  </div>
+
+
 @endsection

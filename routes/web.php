@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SocialController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 
 Route::get('/',[AuthController::class, 'showlogin']);
@@ -31,3 +33,16 @@ Route::controller(AuthController::class)->group(function(){
     Route::post('/login', 'Login')->name('Log-auth');
     Route::post('/registered', 'Register')->name('Registered');
 });
+
+
+Route::controller(ProductController::class)->group(function(){
+
+    Route::get('/products', 'index')->name('Product');
+});
+
+
+Route::controller(CategoryController::class)->group(function(){
+
+    Route::get('/category', 'index')->name('Category');
+});
+
